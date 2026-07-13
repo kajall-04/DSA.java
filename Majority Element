@@ -1,0 +1,22 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        int candidate = nums[0];
+        int count = 0;
+        
+        for (int num : nums) {
+            // If the count drops to 0, pick the current element as the new candidate
+            if (count == 0) {
+                candidate = num;
+            }
+            
+            // If the current element matches the candidate, increment; otherwise decrement
+            if (num == candidate) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        
+        return candidate;
+    }
+}
